@@ -1,0 +1,24 @@
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://media.istockphoto.com/id/1205073641/fr/photo/plan-plein-format-de-chaises-vides.jpg?s=1024x1024&w=is&k=20&c=WKvr70vN_lB9wLY1JpHI7yYLs_2SQtPbSEflfbzwK_w=);">
+  <div class="container text-center">
+    <h1>Save any kind of movies</h1>
+    <p>Xxxx</p>
+  </div>
+</div>
+
+<div class="container ">
+  <div class="d-flex justify-content-between m-4">
+    <h4>My Lists</h4>
+    <div>
+      <%= link_to new_list_path do%>
+        <button type="button" class="btn btn-success btn-sm">Create a movie list</button>
+      <% end %>
+    </div>
+  </div>
+  <div class="d-flex flex-row justify-content-between">
+    <% @lists.each do |list| %>
+      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1465066989788-372fcdde2f2c?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')">
+        <%= link_to list.name, list_path(list) %>
+      </div>
+      <% end %>
+  </div>
+</div>

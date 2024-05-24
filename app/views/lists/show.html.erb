@@ -1,0 +1,30 @@
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://media.istockphoto.com/id/1205073641/fr/photo/plan-plein-format-de-chaises-vides.jpg?s=1024x1024&w=is&k=20&c=WKvr70vN_lB9wLY1JpHI7yYLs_2SQtPbSEflfbzwK_w=);">
+  <div class="container text-center">
+    <h1><%= @list.name %></h1>
+  </div>
+</div>
+
+<div class="container ">
+  <div class="d-flex justify-content-end m-4">
+    <div>
+      <%= link_to new_list_bookmark_path(@list) do%>
+        <button type="button" class="btn btn-success btn-sm">Add a movie</button>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="mb-4">
+    <% @list.bookmarks.each do |bookmark| %>
+      <div class="card" style="width: 18rem;">
+        <img alt="<%= bookmark.movie.title %>" width="200" src="<%= bookmark.movie.poster_url %>">
+        <div class="card-body">
+          <h5 class="card-title"><%= bookmark.movie.title %></h5>
+          <p class="card-text"><%= bookmark.movie.overview %></p>
+        </div>
+        <div class="card-body">
+
+        </div>
+      </div>
+      <% end %>
+  </div>
+</div>
