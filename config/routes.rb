@@ -6,8 +6,9 @@ Rails.application.routes.draw do
   # Can be used by load balancers and uptime monitors to verify that the app is live.
 
   resources :lists, only: [:index, :show, :new, :create] do
-    resources :bookmarks, only: [:index, :new, :create, :destroy]
+    resources :bookmarks, only: [:index, :new, :create]
   end
   # Defines the root path route ("/")
+  resources :bookmarks, only: [:destroy]
   # root "posts#index"
 end

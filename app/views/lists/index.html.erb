@@ -14,11 +14,17 @@
       <% end %>
     </div>
   </div>
-  <div class="d-flex flex-row justify-content-between">
+  <div class="wrapper">
     <% @lists.each do |list| %>
-      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1465066989788-372fcdde2f2c?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')">
-        <%= link_to list.name, list_path(list) %>
-      </div>
-      <% end %>
+       <% if list.photo.attached? %>
+          <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path list.photo.key, crop: :fill %>')">
+            <%= link_to list.name, list_path(list) %>
+          </div>
+       <% else %>
+          <div class="card-category object-fit-cover" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('app/assets/images/backup-photo-list.jpeg')">
+            <%= link_to list.name, list_path(list) %>
+          </div>
+       <% end %>
+    <% end %>
   </div>
 </div>
